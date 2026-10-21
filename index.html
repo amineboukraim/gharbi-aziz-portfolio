@@ -494,8 +494,11 @@
         <span class="new-badge">🆕 Nouveaux travaux</span>
       </div>
       <div class="portfolio-grid reveal">
-        <article class="portfolio-card featured-card" data-category="meta">
+        <article class="portfolio-card featured-card" data-category="meta" data-video="https://github.com/amineboukraim/gharbi-aziz-portfolio/releases/download/v1.0.0/vd_camera_sghar_hook1.mp4" data-title="Camera à Sghar Hook" data-tag="Meta Ads · NOUVEAU">
           <div class="portfolio-thumb">
+            <video class="card-video-preview" muted loop playsinline preload="metadata">
+              <source src="https://github.com/amineboukraim/gharbi-aziz-portfolio/releases/download/v1.0.0/vd_camera_sghar_hook1.mp4" type="video/mp4">
+            </video>
             <div class="portfolio-thumb-placeholder style-new1">
               <i data-lucide="play-circle"></i>
               <span>Camera Hook</span>
@@ -505,13 +508,17 @@
                 <span class="overlay-tag">Meta Ads · NOUVEAU</span>
                 <h4>Camera à Sghar Hook</h4>
                 <p>UGC hook — format viral optimisé</p>
-                <button class="play-btn"><i data-lucide="play"></i></button>
+                <button class="play-btn" aria-label="Regarder la vidéo"><i data-lucide="play"></i></button>
               </div>
             </div>
           </div>
         </article>
-        <article class="portfolio-card featured-card" data-category="tiktok">
+
+        <article class="portfolio-card featured-card" data-category="tiktok" data-video="https://github.com/amineboukraim/gharbi-aziz-portfolio/releases/download/v1.0.0/vd_1.mp4" data-title="VD 1 — Creative Premium" data-tag="TikTok Ads · NOUVEAU">
           <div class="portfolio-thumb">
+            <video class="card-video-preview" muted loop playsinline preload="metadata">
+              <source src="https://github.com/amineboukraim/gharbi-aziz-portfolio/releases/download/v1.0.0/vd_1.mp4" type="video/mp4">
+            </video>
             <div class="portfolio-thumb-placeholder style-new2">
               <i data-lucide="play-circle"></i>
               <span>VD Creative</span>
@@ -521,13 +528,17 @@
                 <span class="overlay-tag">TikTok Ads · NOUVEAU</span>
                 <h4>VD 1 — Creative Premium</h4>
                 <p>Vidéo e-commerce haute conversion</p>
-                <button class="play-btn"><i data-lucide="play"></i></button>
+                <button class="play-btn" aria-label="Regarder la vidéo"><i data-lucide="play"></i></button>
               </div>
             </div>
           </div>
         </article>
-        <article class="portfolio-card featured-card" data-category="ugc">
+
+        <article class="portfolio-card featured-card" data-category="ugc" data-video="https://github.com/amineboukraim/gharbi-aziz-portfolio/releases/download/v1.0.0/ugc_16_hedi_hook1.mp4" data-title="UGC 16 — Hedi Hook" data-tag="UGC · NOUVEAU">
           <div class="portfolio-thumb">
+            <video class="card-video-preview" muted loop playsinline preload="metadata">
+              <source src="https://github.com/amineboukraim/gharbi-aziz-portfolio/releases/download/v1.0.0/ugc_16_hedi_hook1.mp4" type="video/mp4">
+            </video>
             <div class="portfolio-thumb-placeholder style-new3">
               <i data-lucide="play-circle"></i>
               <span>UGC Hedi</span>
@@ -537,7 +548,7 @@
                 <span class="overlay-tag">UGC · NOUVEAU</span>
                 <h4>UGC 16 — Hedi Hook</h4>
                 <p>Contenu UGC natif pour e-commerce</p>
-                <button class="play-btn"><i data-lucide="play"></i></button>
+                <button class="play-btn" aria-label="Regarder la vidéo"><i data-lucide="play"></i></button>
               </div>
             </div>
           </div>
@@ -930,6 +941,23 @@
       </div>
     </div>
   </footer>
+
+  <!-- Video Player Modal -->
+  <div id="video-modal" class="video-modal" aria-hidden="true">
+    <div class="video-modal-backdrop"></div>
+    <div class="video-modal-container">
+      <button class="video-modal-close" id="video-modal-close" aria-label="Fermer la vidéo">
+        <i data-lucide="x"></i>
+      </button>
+      <div class="video-modal-header">
+        <span class="video-modal-tag" id="video-modal-tag">Meta Ads</span>
+        <h3 class="video-modal-title" id="video-modal-title">Titre de la vidéo</h3>
+      </div>
+      <div class="video-modal-player-wrapper">
+        <video id="video-modal-player" controls playsinline controlsList="nodownload"></video>
+      </div>
+    </div>
+  </div>
 
   <!-- WhatsApp Float -->
   <a href="https://wa.me/21697427727?text=Bonjour%20Gharbi%20Aziz%2C%20je%20voudrais%20en%20savoir%20plus%20sur%20vos%20services." 

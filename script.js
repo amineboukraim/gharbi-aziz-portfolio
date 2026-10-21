@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initPortfolioFilter();
   initContactForm();
   initSmoothScroll();
+  initVideoModal();
+  initVideoPreviews();
 });
 
 /* ============================================================
@@ -309,3 +311,87 @@ document.head.appendChild(spinStyle);
 const activeStyle = document.createElement('style');
 activeStyle.textContent = `.nav-link.active { color: var(--gold) !important; } .nav-link.active::after { width: 100% !important; }`;
 document.head.appendChild(activeStyle);
+
+
+/* ============================================================
+   VIDEO MODAL & PREVIEWS
+   ============================================================ */
+function initVideoModal() {
+  const modal = document.getElementById('video-modal');
+  const closeBtn = document.getElementById('video-modal-close');
+  const backdrop = modal ? modal.querySelector('.video-modal-backdrop') : null;
+  const player = document.getElementById('video-modal-player');
+  const titleEl = document.getElementById('video-modal-title');
+  const tagEl = document.getElementById('video-modal-tag');
+
+  if (!modal || !player) return;
+
+  function openModal(videoSrc, title, tag) {
+    player.src = videoSrc;
+    if (titleEl) titleEl.textContent = title || 'Gharbi Aziz — Creative Video';
+    if (tagEl) tagEl.textContent = tag || 'Portfolio Video';
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    player.play().catch(() => {});
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    player.pause();
+    player.currentTime = 0;
+    player.src = '';
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (backdrop) backdrop.addEventListener('click', closeModal);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+  });
+
+  // Attach to all cards and buttons with data-video
+  document.querySelectorAll('[data-video]').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', (e) => {
+      const videoSrc = card.getAttribute('data-video');
+      const title = card.getAttribute('data-title') || card.querySelector('h4')?.textContent;
+      const tag = card.getAttribute('data-tag') || card.querySelector('.overlay-tag')?.textContent;
+      if (videoSrc) {
+        e.preventDefault();
+        openModal(videoSrc, title, tag);
+      }
+    });
+  });
+
+  // Play button click inside cards
+  document.querySelectorAll('.portfolio-card .play-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const card = btn.closest('.portfolio-card');
+      const videoSrc = card?.getAttribute('data-video');
+      const title = card?.getAttribute('data-title') || card?.querySelector('h4')?.textContent;
+      const tag = card?.getAttribute('data-tag') || card?.querySelector('.overlay-tag')?.textContent;
+      if (videoSrc) {
+        openModal(videoSrc, title, tag);
+      }
+    });
+  });
+}
+
+function initVideoPreviews() {
+  document.querySelectorAll('.portfolio-card').forEach(card => {
+    const preview = card.querySelector('.card-video-preview');
+    if (!preview) return;
+
+    card.addEventListener('mouseenter', () => {
+      preview.play().catch(() => {});
+    });
+
+    card.addEventListener('mouseleave', () => {
+      preview.pause();
+      preview.currentTime = 0;
+    });
+  });
+}
