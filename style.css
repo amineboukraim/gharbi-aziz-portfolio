@@ -1754,3 +1754,20 @@ body:has(button:hover) .cursor { width: 18px; height: 18px; }
   background: #000;
   outline: none;
 }
+
+
+/* Card Real Thumbnail Image */
+.card-thumb-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  transition: transform 0.5s ease;
+  z-index: 1;
+}
+
+.portfolio-card:hover .card-thumb-img {
+  transform: scale(1.06);
+}

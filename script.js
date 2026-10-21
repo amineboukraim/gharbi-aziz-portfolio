@@ -328,12 +328,19 @@ function initVideoModal() {
 
   function openModal(videoSrc, title, tag) {
     player.src = videoSrc;
+    player.load();
     if (titleEl) titleEl.textContent = title || 'Gharbi Aziz — Creative Video';
     if (tagEl) tagEl.textContent = tag || 'Portfolio Video';
     modal.classList.add('active');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    player.play().catch(() => {});
+    
+    const playPromise = player.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(err => {
+        console.log('Playback started muted or waiting user gesture:', err);
+      });
+    }
   }
 
   function closeModal() {
