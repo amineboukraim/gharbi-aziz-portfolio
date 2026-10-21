@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gharbi Aziz — SCALEORA | Creative Ads Expert</title>
+  <meta name="author" content="Gharbi Aziz" />
+  <meta name="description" content="Gharbi Aziz — Fondateur de SCALEORA. Expert en creative ads Meta & TikTok pour e-commerce. Des publicités vidéo qui convertissent." />
+  <meta property="og:title" content="Gharbi Aziz — SCALEORA | Creative Ads Expert" />
+  <meta property="og:description" content="Des creatives Meta & TikTok pensées pour scaler votre e-commerce." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== CURSOR ========== -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- ========== LOADER ========== -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">GA</div>
+      <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+      <p class="loader-text">Gharbi Aziz — Portfolio</p>
+    </div>
+  </div>
+
+  <!-- ========== NAV ========== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" id="nav-logo-link">
+        <span class="logo-ga">GA</span>
+        <span class="logo-text">Gharbi Aziz</span>
+      </a>
+      <nav class="nav-links" id="nav-links">
+        <a href="#about" class="nav-link">À propos</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#portfolio" class="nav-link">Portfolio</a>
+        <a href="#pricing" class="nav-link">Tarifs</a>
+        <a href="#testimonials" class="nav-link">Témoignages</a>
+        <a href="#contact" class="nav-link nav-cta">Travailler avec moi →</a>
+      </nav>
+      <button class="nav-burger" id="nav-burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#about" class="mobile-link">À propos</a>
+    <a href="#services" class="mobile-link">Services</a>
+    <a href="#portfolio" class="mobile-link">Portfolio</a>
+    <a href="#pricing" class="mobile-link">Tarifs</a>
+    <a href="#testimonials" class="mobile-link">Témoignages</a>
+    <a href="#contact" class="mobile-link highlight">Travailler avec moi →</a>
+  </div>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero" class="hero">
+    <div class="hero-bg">
+      <div class="hero-orb orb-1"></div>
+      <div class="hero-orb orb-2"></div>
+      <div class="hero-orb orb-3"></div>
+      <div class="hero-grid"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>#1 Creative Ads Agency — Tunisia</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="hero-line">Produit</span>
+        <span class="hero-line arabic" dir="rtl">عليك</span>
+        <span class="hero-line gradient-text">Résultats</span>
+        <span class="hero-line arabic accent-gold" dir="rtl">علينا</span>
+      </h1>
+      <p class="hero-subtitle">
+        Gharbi Aziz — Fondateur de <strong>SCALEORA</strong><br/>
+        Des creatives <span class="highlight-gold">Meta & TikTok</span> qui stoppent le scroll et génèrent des ventes réelles.
+      </p>
+      <div class="hero-actions">
+        <a href="#portfolio" class="btn btn-primary">
+          <i data-lucide="play" aria-hidden="true"></i>
+          Voir mon travail
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          Démarrer un projet
+          <i data-lucide="arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num" data-target="50">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Clients servis</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="200">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Vidéos produites</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="48">0</span><span class="stat-suffix">h</span>
+          <span class="stat-label">Délai livraison</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span>Défiler</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ========== BRANDS TICKER ========== -->
+  <section class="brands-section" aria-label="Marques partenaires">
+    <p class="brands-label">Ils nous ont fait confiance</p>
+    <div class="brands-ticker">
+      <div class="ticker-track">
+        <span class="brand-item">BioFeel</span>
+        <span class="brand-sep">✦</span>
+        <span class="brand-item">Bioyra</span>
+        <span class="brand-sep">✦</span>
+        <span class="brand-item">Herbavie</span>
+        <span class="brand-sep">✦</span>
+        <span class="brand-item">Cynos</span>
+        <span class="brand-sep">✦</span>
+        <span class="brand-item">Imabio</span>
+        <span class="brand-sep">✦</span>
+        <span class="brand-item">BioFeel</span>
+        <span class="brand-sep">✦</span>
+        <span class="brand-item">Bioyra</span>
+        <span class="brand-sep">✦</span>
+        <span class="brand-item">Herbavie</span>
+        <span class="brand-sep">✦</span>
+        <span class="brand-item">Cynos</span>
+        <span class="brand-sep">✦</span>
+        <span class="brand-item">Imabio</span>
+        <span class="brand-sep">✦</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-col reveal">
+          <div class="about-image-wrap">
+            <div class="about-image-placeholder">
+              <div class="about-initials">GA</div>
+              <div class="about-img-rings">
+                <div class="ring ring-1"></div>
+                <div class="ring ring-2"></div>
+                <div class="ring ring-3"></div>
+              </div>
+            </div>
+            <div class="about-badge-float badge-exp">
+              <i data-lucide="award"></i>
+              <div>
+                <strong>2+ ans</strong>
+                <span>d'expérience</span>
+              </div>
+            </div>
+            <div class="about-badge-float badge-rate">
+              <i data-lucide="trending-up"></i>
+              <div>
+                <strong>ROAS x4</strong>
+                <span>en moyenne</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-text-col reveal">
+          <span class="eyebrow">À propos de moi</span>
+          <h2 class="section-title">
+            Je suis <span class="gradient-text">Gharbi Aziz</span>,<br/>Fondateur de SCALEORA
+          </h2>
+          <p class="about-desc">
+            Passionné par le marketing digital et la création de contenu, j'ai fondé <strong>SCALEORA</strong> avec une mission claire : aider les marques e-commerce tunisiennes et arabes à générer de vrais résultats grâce à des creatives vidéo qui <em>convertissent</em>.
+          </p>
+          <p class="about-desc" dir="rtl" style="text-align: right; font-family: 'Space Grotesk', sans-serif;">
+            بنينا SCALEORA باش نساعدو البيزنسات تكبّر مع creatives تستهدف العميل وتحوّله من viewer لـ buyer.
+          </p>
+          <div class="about-skills">
+            <div class="skill-tag"><i data-lucide="video"></i> Video Editing</div>
+            <div class="skill-tag"><i data-lucide="target"></i> Meta Ads</div>
+            <div class="skill-tag"><i data-lucide="music"></i> TikTok Ads</div>
+            <div class="skill-tag"><i data-lucide="pen-tool"></i> Scriptwriting</div>
+            <div class="skill-tag"><i data-lucide="bar-chart-2"></i> Growth Strategy</div>
+            <div class="skill-tag"><i data-lucide="layers"></i> UGC Content</div>
+          </div>
+          <div class="about-cta-row">
+            <a href="#contact" class="btn btn-primary">Me contacter</a>
+            <a href="https://wa.me/21697427727" target="_blank" rel="noreferrer" class="btn btn-ghost">
+              <i data-lucide="message-circle"></i>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section id="services" class="section services-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Ce que je fais</span>
+        <h2 class="section-title">
+          Des <span class="gradient-text">services</span> pensés<br/>pour votre croissance
+        </h2>
+        <p class="section-subtitle">
+          Tout ce dont vous avez besoin pour transformer votre contenu en machine à vendre.
+        </p>
+      </div>
+      <div class="services-grid">
+        <article class="service-card reveal" data-delay="0">
+          <div class="service-icon">
+            <i data-lucide="film"></i>
+          </div>
+          <span class="service-num">01</span>
+          <h3>Video Editing Premium</h3>
+          <p>Montage cinématique avec color grading, transitions fluides, et hooks visuels qui stoppent le scroll en moins de 3 secondes.</p>
+          <ul class="service-list">
+            <li><i data-lucide="check"></i> Livraison en 48h</li>
+            <li><i data-lucide="check"></i> Révisions illimitées</li>
+            <li><i data-lucide="check"></i> Format Multi-plateforme</li>
+          </ul>
+          <div class="service-tag">Meta · TikTok · Reels</div>
+        </article>
+
+        <article class="service-card reveal featured-service" data-delay="100">
+          <div class="service-badge">⭐ Populaire</div>
+          <div class="service-icon">
+            <i data-lucide="target"></i>
+          </div>
+          <span class="service-num">02</span>
+          <h3>Creatives Ads Complètes</h3>
+          <p>De la stratégie au montage final : scripts, hooks A/B testés, CTA optimisés, et creative briefs alignés sur votre audience.</p>
+          <ul class="service-list">
+            <li><i data-lucide="check"></i> Script + Storyboard</li>
+            <li><i data-lucide="check"></i> 3 hooks par vidéo</li>
+            <li><i data-lucide="check"></i> Analyse concurrentielle</li>
+          </ul>
+          <div class="service-tag">ROI · Conversion · Scale</div>
+        </article>
+
+        <article class="service-card reveal" data-delay="200">
+          <div class="service-icon">
+            <i data-lucide="users"></i>
+          </div>
+          <span class="service-num">03</span>
+          <h3>UGC & Content Strategy</h3>
+          <p>Contenu authentique style UGC, parfait pour créer de la confiance et augmenter votre taux de conversion sur Facebook et TikTok.</p>
+          <ul class="service-list">
+            <li><i data-lucide="check"></i> Stratégie de contenu</li>
+            <li><i data-lucide="check"></i> Édition de style natif</li>
+            <li><i data-lucide="check"></i> Social proof intégré</li>
+          </ul>
+          <div class="service-tag">Trust · UGC · Authentique</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROCESS ========== -->
+  <section class="section process-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow" dir="rtl">من المنتج لـ Creative</span>
+        <h2 class="section-title">
+          Comment on <span class="gradient-text">travaille</span>
+        </h2>
+      </div>
+      <div class="process-timeline">
+        <div class="process-step reveal">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3 dir="rtl">نفهمو المنتج والعرض</h3>
+            <p>On analyse votre produit, votre audience cible, vos concurrents, et on définit ensemble la meilleure angle créative pour votre marché.</p>
+          </div>
+          <div class="step-icon"><i data-lucide="search"></i></div>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-step reveal step-right">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3 dir="rtl">Script إلي يضمن البيع</h3>
+            <p>On rédige les scripts et storyboards avec des hooks testés qui captent l'attention dans les 3 premières secondes — le moment critique.</p>
+          </div>
+          <div class="step-icon"><i data-lucide="pen-tool"></i></div>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-step reveal">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3 dir="rtl">نحضرو Creatives جاهزة</h3>
+            <p>Montage pro avec sound design, captions animés, color grading premium. Livrés en 48h, prêts à scaler vos campagnes Meta & TikTok.</p>
+          </div>
+          <div class="step-icon"><i data-lucide="video"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PORTFOLIO ========== -->
+  <section id="portfolio" class="section portfolio-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Mes créations</span>
+        <h2 class="section-title">
+          Portfolio <span class="gradient-text">vidéo</span>
+        </h2>
+        <p class="section-subtitle" dir="rtl">
+          نحوّلوا فكرتك إلى محتوى يوقف الـ scroll ويعاونك تكبّر مشروعك.
+        </p>
+      </div>
+      <div class="portfolio-filters reveal">
+        <button class="filter-btn active" data-filter="all">Tout</button>
+        <button class="filter-btn" data-filter="meta">Meta Ads</button>
+        <button class="filter-btn" data-filter="tiktok">TikTok</button>
+        <button class="filter-btn" data-filter="ugc">UGC</button>
+      </div>
+      <div class="portfolio-grid reveal">
+        <article class="portfolio-card" data-category="meta">
+          <div class="portfolio-thumb">
+            <div class="portfolio-thumb-placeholder">
+              <i data-lucide="play-circle"></i>
+              <span>Climate Change Ad</span>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="overlay-content">
+                <span class="overlay-tag">Meta Ads</span>
+                <h4>Fih Baraka Campaign</h4>
+                <p>Climate change awareness creative</p>
+                <button class="play-btn" aria-label="Play">
+                  <i data-lucide="play"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card" data-category="tiktok">
+          <div class="portfolio-thumb">
+            <div class="portfolio-thumb-placeholder style-2">
+              <i data-lucide="play-circle"></i>
+              <span>Sonic Wave Ad</span>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="overlay-content">
+                <span class="overlay-tag">TikTok Ads</span>
+                <h4>Feel Every Detail</h4>
+                <p>Produit électronique — hook percutant</p>
+                <button class="play-btn" aria-label="Play">
+                  <i data-lucide="play"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card" data-category="meta">
+          <div class="portfolio-thumb">
+            <div class="portfolio-thumb-placeholder style-3">
+              <i data-lucide="play-circle"></i>
+              <span>Nailora Ad</span>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="overlay-content">
+                <span class="overlay-tag">Meta Ads</span>
+                <h4>The Perfect Red</h4>
+                <p>Beauty — nail art creative</p>
+                <button class="play-btn" aria-label="Play">
+                  <i data-lucide="play"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card" data-category="meta">
+          <div class="portfolio-thumb">
+            <div class="portfolio-thumb-placeholder style-4">
+              <i data-lucide="play-circle"></i>
+              <span>Parfume Gold</span>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="overlay-content">
+                <span class="overlay-tag">Meta Ads</span>
+                <h4>Move Different</h4>
+                <p>Parfum luxe — cinématique gold</p>
+                <button class="play-btn" aria-label="Play">
+                  <i data-lucide="play"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card" data-category="ugc">
+          <div class="portfolio-thumb">
+            <div class="portfolio-thumb-placeholder style-5">
+              <i data-lucide="play-circle"></i>
+              <span>Fashion UGC</span>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="overlay-content">
+                <span class="overlay-tag">UGC</span>
+                <h4>Top Drapé — El Bio Shop</h4>
+                <p>Mode — contenu natif authentique</p>
+                <button class="play-btn" aria-label="Play">
+                  <i data-lucide="play"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card" data-category="tiktok">
+          <div class="portfolio-thumb">
+            <div class="portfolio-thumb-placeholder style-6">
+              <i data-lucide="play-circle"></i>
+              <span>Velorra Summer</span>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="overlay-content">
+                <span class="overlay-tag">TikTok Ads</span>
+                <h4>Made for Summer</h4>
+                <p>Mode balnéaire — vibes estivales</p>
+                <button class="play-btn" aria-label="Play">
+                  <i data-lucide="play"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card" data-category="ugc">
+          <div class="portfolio-thumb">
+            <div class="portfolio-thumb-placeholder style-7">
+              <i data-lucide="play-circle"></i>
+              <span>BioFeel Nature</span>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="overlay-content">
+                <span class="overlay-tag">UGC</span>
+                <h4>Nature in Motion</h4>
+                <p>Produit bio — storytelling naturel</p>
+                <button class="play-btn" aria-label="Play">
+                  <i data-lucide="play"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card" data-category="meta">
+          <div class="portfolio-thumb">
+            <div class="portfolio-thumb-placeholder style-8">
+              <i data-lucide="play-circle"></i>
+              <span>New Creation</span>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="overlay-content">
+                <span class="overlay-tag">Meta Ads</span>
+                <h4>Nouvelle Création</h4>
+                <p>Creative premium — résultats prouvés</p>
+                <button class="play-btn" aria-label="Play">
+                  <i data-lucide="play"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- New videos from SwissTransfer -->
+      <div class="portfolio-new-tag reveal">
+        <span class="new-badge">🆕 Nouveaux travaux</span>
+      </div>
+      <div class="portfolio-grid reveal">
+        <article class="portfolio-card featured-card" data-category="meta">
+          <div class="portfolio-thumb">
+            <div class="portfolio-thumb-placeholder style-new1">
+              <i data-lucide="play-circle"></i>
+              <span>Camera Hook</span>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="overlay-content">
+                <span class="overlay-tag">Meta Ads · NOUVEAU</span>
+                <h4>Camera à Sghar Hook</h4>
+                <p>UGC hook — format viral optimisé</p>
+                <button class="play-btn"><i data-lucide="play"></i></button>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="portfolio-card featured-card" data-category="tiktok">
+          <div class="portfolio-thumb">
+            <div class="portfolio-thumb-placeholder style-new2">
+              <i data-lucide="play-circle"></i>
+              <span>VD Creative</span>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="overlay-content">
+                <span class="overlay-tag">TikTok Ads · NOUVEAU</span>
+                <h4>VD 1 — Creative Premium</h4>
+                <p>Vidéo e-commerce haute conversion</p>
+                <button class="play-btn"><i data-lucide="play"></i></button>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="portfolio-card featured-card" data-category="ugc">
+          <div class="portfolio-thumb">
+            <div class="portfolio-thumb-placeholder style-new3">
+              <i data-lucide="play-circle"></i>
+              <span>UGC Hedi</span>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="overlay-content">
+                <span class="overlay-tag">UGC · NOUVEAU</span>
+                <h4>UGC 16 — Hedi Hook</h4>
+                <p>Contenu UGC natif pour e-commerce</p>
+                <button class="play-btn"><i data-lucide="play"></i></button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="portfolio-cta reveal">
+        <p>Vous voulez des creatives comme celles-ci pour votre marque ?</p>
+        <a href="#contact" class="btn btn-primary">Démarrer mon projet →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RESULTS / METRICS ========== -->
+  <section class="section metrics-section">
+    <div class="container">
+      <div class="metrics-bg-text">RESULTS</div>
+      <div class="section-header reveal">
+        <span class="eyebrow">Nos résultats</span>
+        <h2 class="section-title">
+          Des chiffres qui <span class="gradient-text">parlent</span>
+        </h2>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric-card reveal">
+          <div class="metric-icon"><i data-lucide="trending-up"></i></div>
+          <div class="metric-num counter" data-target="4">0</div>
+          <div class="metric-suffix">x ROAS</div>
+          <p>Retour sur investissement moyen généré pour nos clients e-commerce</p>
+        </div>
+        <div class="metric-card reveal">
+          <div class="metric-icon"><i data-lucide="zap"></i></div>
+          <div class="metric-num counter" data-target="48">0</div>
+          <div class="metric-suffix">heures</div>
+          <p>Délai de livraison garanti pour chaque pack de creatives commandé</p>
+        </div>
+        <div class="metric-card reveal">
+          <div class="metric-icon"><i data-lucide="users"></i></div>
+          <div class="metric-num counter" data-target="50">0</div>
+          <div class="metric-suffix">+ clients</div>
+          <p>Marques e-commerce servies avec succès depuis la création de SCALEORA</p>
+        </div>
+        <div class="metric-card reveal">
+          <div class="metric-icon"><i data-lucide="video"></i></div>
+          <div class="metric-num counter" data-target="200">0</div>
+          <div class="metric-suffix">+ vidéos</div>
+          <p>Creatives produites et diffusées sur Meta & TikTok avec des résultats mesurables</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section id="testimonials" class="section testimonials-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Témoignages</span>
+        <h2 class="section-title" dir="rtl">
+          شنو قالو <span class="gradient-text">clients</span> متاعنا
+        </h2>
+      </div>
+      <div class="testimonials-wrapper">
+        <div class="testimonial-card reveal">
+          <div class="testi-header">
+            <div class="testi-avatar">BF</div>
+            <div class="testi-info">
+              <strong>BioFeel Client</strong>
+              <span>E-commerce — Produits Bio</span>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <div class="testi-proof-type">
+            <i data-lucide="message-circle"></i>
+            Message WhatsApp
+          </div>
+          <p class="testi-text" dir="rtl">
+            "الفيديوهات كانت على مستوى عالي جداً! ملاحظة كبيرة في المبيعات من أول يوم نشر. شكراً SCALEORA 🔥"
+          </p>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <div class="testi-header">
+            <div class="testi-avatar">BY</div>
+            <div class="testi-info">
+              <strong>Bioyra Brand</strong>
+              <span>Cosmétiques — Meta Ads</span>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <div class="testi-proof-type">
+            <i data-lucide="mic"></i>
+            Note vocale client
+          </div>
+          <div class="audio-player-fake">
+            <div class="audio-play-btn"><i data-lucide="play"></i></div>
+            <div class="audio-waveform">
+              <span style="--h:40%"></span><span style="--h:70%"></span>
+              <span style="--h:55%"></span><span style="--h:90%"></span>
+              <span style="--h:65%"></span><span style="--h:45%"></span>
+              <span style="--h:80%"></span><span style="--h:50%"></span>
+              <span style="--h:75%"></span><span style="--h:60%"></span>
+            </div>
+            <span class="audio-dur">0:21</span>
+          </div>
+          <p class="testi-text" dir="rtl">
+            "الخدمة سريعة والنتائج ما خيّبوش. نرشح SCALEORA لكل صاحب متجر يحب يكبّر."
+          </p>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <div class="testi-header">
+            <div class="testi-avatar">HV</div>
+            <div class="testi-info">
+              <strong>Herbavie Shop</strong>
+              <span>Health & Wellness</span>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <div class="testi-proof-type">
+            <i data-lucide="message-circle"></i>
+            Avis WhatsApp
+          </div>
+          <p class="testi-text" dir="rtl">
+            "أفضل قرار اتخذناه هو التعامل مع SCALEORA. الفيديوهات تعمل على الأقل ضعف ما كنا نحصل عليه قبل."
+          </p>
+        </div>
+      </div>
+
+      <!-- Voice note display -->
+      <div class="voice-notes-section reveal">
+        <h3 class="voice-notes-title">Notes vocales de clients</h3>
+        <div class="voice-notes-grid">
+          <div class="voice-note-card">
+            <div class="vn-icon"><i data-lucide="mic"></i></div>
+            <div class="vn-info">
+              <span>Client — BioFeel</span>
+              <div class="vn-waveform">
+                <span style="--h:50%"></span><span style="--h:80%"></span>
+                <span style="--h:60%"></span><span style="--h:100%"></span>
+                <span style="--h:70%"></span><span style="--h:40%"></span>
+                <span style="--h:90%"></span><span style="--h:55%"></span>
+              </div>
+              <span class="vn-dur">0:21</span>
+            </div>
+            <button class="vn-play"><i data-lucide="play"></i></button>
+          </div>
+          <div class="voice-note-card">
+            <div class="vn-icon"><i data-lucide="mic"></i></div>
+            <div class="vn-info">
+              <span>Client — Bioyra</span>
+              <div class="vn-waveform">
+                <span style="--h:45%"></span><span style="--h:75%"></span>
+                <span style="--h:55%"></span><span style="--h:95%"></span>
+                <span style="--h:65%"></span><span style="--h:35%"></span>
+                <span style="--h:85%"></span><span style="--h:50%"></span>
+              </div>
+              <span class="vn-dur">0:36</span>
+            </div>
+            <button class="vn-play"><i data-lucide="play"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section id="pricing" class="section pricing-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow" dir="rtl">Packs</span>
+        <h2 class="section-title" dir="rtl">
+          اختار <span class="gradient-text">Pack</span> اللي يساعدك
+        </h2>
+        <p class="section-subtitle" dir="rtl">
+          اعطينا Produit ولا Footage و خلي الباقي علينا
+        </p>
+      </div>
+      <div class="pricing-grid">
+        <article class="pricing-card reveal">
+          <div class="pricing-tier">STARTER</div>
+          <h3>Starter Pack</h3>
+          <p class="pricing-tagline">5 vidéos en 48h</p>
+          <div class="pricing-price">
+            <span class="price-currency">DT</span>
+            <span class="price-num">490</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i data-lucide="check-circle"></i> 5 creatives vidéo</li>
+            <li><i data-lucide="check-circle"></i> Révisions illimitées</li>
+            <li><i data-lucide="check-circle"></i> Color grading premium</li>
+            <li><i data-lucide="check-circle"></i> 3 hooks par vidéo</li>
+            <li><i data-lucide="check-circle"></i> Livraison 48h</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline w-full">Choisir ce pack</a>
+        </article>
+
+        <article class="pricing-card pricing-featured reveal">
+          <div class="pricing-popular">⭐ Plus populaire</div>
+          <div class="pricing-tier">GROWTH</div>
+          <h3>Growth Pack</h3>
+          <p class="pricing-tagline">10 vidéos en 48h</p>
+          <div class="pricing-price">
+            <span class="price-currency">DT</span>
+            <span class="price-num">800</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i data-lucide="check-circle"></i> 10 creatives vidéo</li>
+            <li><i data-lucide="check-circle"></i> Révisions illimitées</li>
+            <li><i data-lucide="check-circle"></i> Script & Storyboard</li>
+            <li><i data-lucide="check-circle"></i> 3 hooks par vidéo</li>
+            <li><i data-lucide="check-circle"></i> A/B testing ready</li>
+            <li><i data-lucide="check-circle"></i> Support prioritaire</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary w-full">Choisir ce pack</a>
+        </article>
+
+        <article class="pricing-card reveal">
+          <div class="pricing-tier">SCALE</div>
+          <h3>Scale Pack</h3>
+          <p class="pricing-tagline">20 vidéos en 48h</p>
+          <div class="pricing-price">
+            <span class="price-currency">DT</span>
+            <span class="price-num">1400</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i data-lucide="check-circle"></i> 20 creatives vidéo</li>
+            <li><i data-lucide="check-circle"></i> Révisions illimitées</li>
+            <li><i data-lucide="check-circle"></i> Strategy complète</li>
+            <li><i data-lucide="check-circle"></i> UGC & Hook testing</li>
+            <li><i data-lucide="check-circle"></i> Reporting mensuel</li>
+            <li><i data-lucide="check-circle"></i> Account manager dédié</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline w-full">Choisir ce pack</a>
+        </article>
+      </div>
+      <div class="pricing-note reveal">
+        <i data-lucide="shield-check"></i>
+        <span>Paiement sécurisé · Satisfaction garantie · Pas de frais cachés</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-info reveal">
+          <span class="eyebrow">Me contacter</span>
+          <h2 class="section-title">
+            Prêt à <span class="gradient-text">scaler</span><br/>votre marque ?
+          </h2>
+          <p>
+            Remplissez le formulaire et je vous contacte dans les <strong>24 heures</strong> pour discuter de votre projet.
+          </p>
+          <div class="contact-details">
+            <a href="https://wa.me/21697427727" target="_blank" rel="noreferrer" class="contact-item">
+              <div class="contact-item-icon whatsapp-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+              </div>
+              <div>
+                <strong>WhatsApp</strong>
+                <span>+216 97 427 727</span>
+              </div>
+            </a>
+            <a href="https://www.instagram.com/scaleora.tn/" target="_blank" rel="noreferrer" class="contact-item">
+              <div class="contact-item-icon insta-icon">
+                <i data-lucide="instagram"></i>
+              </div>
+              <div>
+                <strong>Instagram</strong>
+                <span>@scaleora.tn</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="contact-form" dir="rtl">
+          <div class="form-pill">
+            <span class="pill-dot"></span>
+            نقبل clients جدد
+          </div>
+          <div class="form-grid">
+            <label class="form-field">
+              <span>اسمك أو اسم البراند</span>
+              <input type="text" name="name" placeholder="اكتب الاسم هنا" required />
+            </label>
+            <label class="form-field">
+              <span>نومرو الـ WhatsApp</span>
+              <input type="tel" name="whatsapp" placeholder="+216 00 000 000" required />
+            </label>
+          </div>
+          <fieldset class="form-field">
+            <legend>نوع البيزنس</legend>
+            <div class="radio-grid">
+              <label class="radio-card">
+                <input type="radio" name="type" value="ecommerce" />
+                <span>
+                  <strong>E-commerce</strong>
+                  <small>متجر إلكتروني</small>
+                </span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="type" value="service" />
+                <span>
+                  <strong>Service</strong>
+                  <small>خدمات</small>
+                </span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="type" value="brand" />
+                <span>
+                  <strong>Brand</strong>
+                  <small>براند</small>
+                </span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="type" value="other" />
+                <span>
+                  <strong>Autre</strong>
+                  <small>آخر</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <label class="form-field">
+            <span>Pack souhaité</span>
+            <select name="pack">
+              <option value="" disabled selected>Choisir un pack</option>
+              <option value="starter">Starter Pack — 490 DT</option>
+              <option value="growth">Growth Pack — 800 DT</option>
+              <option value="scale">Scale Pack — 1400 DT</option>
+              <option value="custom">Sur mesure — Contactez-moi</option>
+            </select>
+          </label>
+          <label class="form-field">
+            <span>Message (optionnel)</span>
+            <textarea name="message" rows="3" placeholder="دير ملاحظاتك هنا..."></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary w-full" id="submit-btn">
+            <i data-lucide="send"></i>
+            ابعث طلبك
+          </button>
+          <p class="form-privacy">🔒 معلوماتك تبقى سرّية</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-ga">GA</span>
+            <span class="logo-text">Gharbi Aziz</span>
+          </div>
+          <p>Fondateur de SCALEORA — Des creatives Meta & TikTok qui transforment vos produits en résultats mesurables.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/scaleora.tn/" target="_blank" rel="noreferrer" aria-label="Instagram" class="social-link">
+              <i data-lucide="instagram"></i>
+            </a>
+            <a href="https://wa.me/21697427727" target="_blank" rel="noreferrer" aria-label="WhatsApp" class="social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <a href="#about">À propos</a>
+          <a href="#services">Services</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#pricing">Tarifs</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <a href="https://wa.me/21697427727">+216 97 427 727</a>
+          <a href="https://www.instagram.com/scaleora.tn/">@scaleora.tn</a>
+          <a href="https://scaleora-growth-partners.vercel.app/">scaleora.tn</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Gharbi Aziz — SCALEORA. Tous droits réservés.</span>
+        <span>Tunisia 🇹🇳</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/21697427727?text=Bonjour%20Gharbi%20Aziz%2C%20je%20voudrais%20en%20savoir%20plus%20sur%20vos%20services." 
+     target="_blank" rel="noreferrer" 
+     class="whatsapp-float" 
+     aria-label="Contacter sur WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+    <span class="float-pulse"></span>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
