@@ -1931,127 +1931,193 @@ body:has(button:hover) .cursor { width: 18px; height: 18px; }
 
 
 /* ============================================================
-   FULLSCREEN POSTER COVER (AU DEBUT DU SITE)
+   FULLSCREEN POSTER COVER (AU DEBUT DU SITE) — FULL BLEED
    ============================================================ */
+
+/* === Keyframe animations === */
+@keyframes posterFadeIn {
+  from { opacity: 0; transform: scale(1.04); filter: brightness(0.6); }
+  to   { opacity: 1; transform: scale(1);    filter: brightness(1.15); }
+}
+@keyframes posterContentIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes lightSweep {
+  0%   { transform: translateX(-120%) skewX(-20deg); }
+  100% { transform: translateX(250%) skewX(-20deg); }
+}
+@keyframes particleFly {
+  0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0.7; }
+  100% { transform: translateY(-120vh) translateX(var(--dx, 30px)) scale(0.3); opacity: 0; }
+}
+@keyframes floatBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+@keyframes goldPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212,168,67,0); }
+  50%       { box-shadow: 0 0 25px 8px rgba(212,168,67,0.25); }
+}
+@keyframes badgeGlow {
+  0%, 100% { border-color: rgba(212,168,67,0.4); }
+  50%       { border-color: rgba(212,168,67,0.9); box-shadow: 0 0 20px rgba(212,168,67,0.35); }
+}
+
+/* === Section: full-bleed ===  */
 .fullscreen-poster-section {
   position: relative;
-  min-height: 100vh;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 5rem 1rem 3rem;
-  background: radial-gradient(circle at 50% 50%, #0a0a10 0%, #030305 70%, #000000 100%);
+  height: 100vh;
+  min-height: 600px;
   overflow: hidden;
-  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: #000;
 }
 
-.poster-bg-glow {
+/* === Background image fills entire screen === */
+.poster-fullbg {
   position: absolute;
-  top: 48%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 900px;
-  height: 550px;
-  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, rgba(212, 168, 67, 0.16) 40%, transparent 70%);
-  filter: blur(80px);
-  pointer-events: none;
-  z-index: 1;
+  inset: 0;
+  background-image: url('media/hero_banner.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: brightness(1.25) contrast(1.08) saturate(1.1);
+  transform: scale(1.01);
+  animation: posterFadeIn 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, filter;
+  z-index: 0;
 }
 
-.poster-container {
-  position: relative;
+/* Parallax effect via JS hook */
+.poster-fullbg.parallax-active {
+  transition: transform 0.1s linear;
+}
+
+/* === Gradient overlay at bottom for text legibility === */
+.fullscreen-poster-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top,
+      rgba(0,0,0,0.82) 0%,
+      rgba(0,0,0,0.35) 45%,
+      rgba(0,0,0,0.08) 75%,
+      transparent 100%),
+    linear-gradient(to bottom,
+      rgba(0,0,0,0.4) 0%,
+      transparent 20%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* === Cinematic light sweep === */
+.poster-light-sweep {
+  position: absolute;
+  inset: 0;
   z-index: 2;
-  max-width: 1400px;
-  width: 96vw;
+  pointer-events: none;
+  overflow: hidden;
+}
+.poster-light-sweep::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.07) 40%,
+    rgba(212,168,67,0.09) 50%,
+    rgba(255,255,255,0.07) 60%,
+    transparent 100%
+  );
+  animation: lightSweep 4s ease-in-out 1.8s infinite;
+}
+
+/* === Floating particles (JS-generated, CSS animates) === */
+.poster-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.poster-particle {
+  position: absolute;
+  bottom: 0;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0;
+  animation: particleFly var(--dur, 6s) ease-out var(--delay, 0s) infinite;
+  box-shadow: 0 0 6px 2px rgba(212,168,67,0.5);
+}
+
+/* === Content overlay === */
+.poster-overlay-content {
+  position: relative;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-}
-
-.poster-frame {
-  position: relative;
+  gap: 1.25rem;
+  padding: 0 1.5rem 4rem;
   width: 100%;
-  max-width: 1350px;
-  border-radius: 22px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 
-    0 35px 120px rgba(0, 0, 0, 0.98),
-    0 0 80px rgba(255, 255, 255, 0.08),
-    0 0 50px rgba(212, 168, 67, 0.15),
-    inset 0 0 40px rgba(0, 0, 0, 0.85);
-  background: #000;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+  max-width: 900px;
+  animation: posterContentIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
 }
 
-.poster-frame:hover {
-  transform: translateY(-5px) scale(1.01);
-  box-shadow: 
-    0 45px 140px rgba(0, 0, 0, 1),
-    0 0 100px rgba(255, 255, 255, 0.15),
-    0 0 60px rgba(212, 168, 67, 0.25),
-    inset 0 0 40px rgba(0, 0, 0, 0.85);
-}
-
-.poster-img {
-  width: 100%;
-  height: auto;
-  max-height: 70vh;
-  display: block;
-  object-fit: contain;
-  margin: 0 auto;
-}
-
-.poster-shine {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.08) 50%, transparent 70%);
-  pointer-events: none;
-}
-
-.poster-meta {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.1rem;
-}
-
+/* === Badge === */
 .poster-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.45rem 1.3rem;
+  padding: 0.5rem 1.4rem;
   border-radius: 999px;
-  background: rgba(212, 168, 67, 0.12);
-  border: 1px solid rgba(212, 168, 67, 0.4);
+  background: rgba(212, 168, 67, 0.15);
+  border: 1px solid rgba(212, 168, 67, 0.5);
   font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--gold);
-  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #f5d98a;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+.poster-badge-anim {
+  animation: badgeGlow 2.8s ease-in-out 2s infinite;
 }
 
+/* === Subtitle === */
 .poster-subtext {
-  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
-  color: var(--text-2);
-  max-width: 700px;
-  line-height: 1.5;
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  color: rgba(255,255,255,0.85);
+  max-width: 680px;
+  line-height: 1.55;
   margin: 0;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.9);
 }
 
+/* === Action buttons === */
 .poster-actions {
   display: flex;
   gap: 1.25rem;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 0.5rem;
+}
+.poster-actions-anim .btn-primary {
+  animation: goldPulse 3s ease-in-out 2.5s infinite;
 }
 
+/* === Scroll hint === */
 .poster-scroll-btn {
   position: absolute;
   bottom: 1.5rem;
@@ -2062,42 +2128,36 @@ body:has(button:hover) .cursor { width: 18px; height: 18px; }
   flex-direction: column;
   align-items: center;
   gap: 0.35rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: color 0.3s ease;
   animation: floatBounce 2.5s infinite ease-in-out;
 }
-
-.poster-scroll-btn:hover {
-  color: var(--gold);
-  transform: translateX(-50%) translateY(3px);
-}
-
-.poster-scroll-btn [data-lucide] {
-  width: 18px;
-  height: 18px;
-}
-
-@keyframes floatBounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(8px); }
-}
+.poster-scroll-btn:hover { color: var(--gold); }
+.poster-scroll-btn [data-lucide] { width: 18px; height: 18px; }
 
 @media (max-width: 768px) {
   .fullscreen-poster-section {
-    padding: 5rem 1rem 3.5rem;
-    min-height: 90vh;
+    height: 100svh;
+    min-height: 560px;
   }
-  .poster-frame {
-    border-radius: 14px;
+  .poster-overlay-content {
+    padding: 0 1rem 5rem;
+  }
+  .poster-subtext {
+    font-size: 0.95rem;
   }
   .poster-actions {
     flex-direction: column;
     width: 100%;
-    max-width: 320px;
+    max-width: 300px;
+  }
+  .poster-badge {
+    font-size: 0.7rem;
+    padding: 0.4rem 1rem;
   }
 }

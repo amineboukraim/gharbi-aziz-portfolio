@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initVideoModal();
   initVideoPreviews();
+  initPosterEffects();
 });
 
 /* ============================================================
@@ -401,4 +402,54 @@ function initVideoPreviews() {
       preview.currentTime = 0;
     });
   });
+}
+
+
+/* ============================================================
+   FULLSCREEN POSTER — Parallax + Particles + Brightness
+   ============================================================ */
+function initPosterEffects() {
+  const bg = document.getElementById('poster-fullbg');
+  const particlesContainer = document.getElementById('poster-particles');
+  const section = document.getElementById('cover');
+  if (!section) return;
+
+  /* --- Parallax on scroll --- */
+  if (bg) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const sectionH = section.offsetHeight;
+          if (scrollY <= sectionH) {
+            const offset = scrollY * 0.3;
+            bg.style.transform = `scale(1.01) translateY(${offset}px)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  /* --- Floating gold particles --- */
+  if (particlesContainer) {
+    const count = 18;
+    for (let i = 0; i < count; i++) {
+      const p = document.createElement('div');
+      p.className = 'poster-particle';
+      const size = Math.random() * 4 + 2;
+      p.style.cssText = `
+        left: ${Math.random() * 100}%;
+        width: ${size}px;
+        height: ${size}px;
+        --dur: ${Math.random() * 5 + 5}s;
+        --delay: ${Math.random() * 6}s;
+        --dx: ${(Math.random() - 0.5) * 120}px;
+        opacity: 0;
+      `;
+      particlesContainer.appendChild(p);
+    }
+  }
 }
