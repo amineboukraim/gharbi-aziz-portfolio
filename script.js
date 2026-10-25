@@ -257,7 +257,7 @@ function initContactForm() {
     const wa = form.querySelector('[name="whatsapp"]').value;
     const pack = form.querySelector('[name="pack"]').value;
     const msg = encodeURIComponent(
-      `Bonjour Gharbi Aziz 👋\n\nJe suis ${name}, intéressé par GHARBI EDITOR.\nMon WhatsApp: ${wa}\nPack souhaité: ${pack}\n\nMerci de me contacter.`
+      `Bonjour Gharbi Aziz 👋\n\nJe suis ${name}, intéressé par GHARBI AGENCY.\nMon WhatsApp: ${wa}\nPack souhaité: ${pack}\n\nMerci de me contacter.`
     );
 
     setTimeout(() => {
