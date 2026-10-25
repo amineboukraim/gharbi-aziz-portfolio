@@ -103,6 +103,23 @@ body {
 body:has(a:hover) .cursor { width: 18px; height: 18px; background: var(--gold-light); }
 body:has(a:hover) .cursor-follower { width: 56px; height: 56px; border-color: var(--violet-bright); }
 body:has(button:hover) .cursor { width: 18px; height: 18px; }
+body:has(.portfolio-card:hover) .cursor { width: 22px; height: 22px; background: var(--gold); }
+body:has(.portfolio-card:hover) .cursor-follower { width: 64px; height: 64px; border-color: var(--gold); }
+
+/* Video modal active: restore full system cursor for complete video control */
+body.modal-open {
+  cursor: auto !important;
+}
+body.modal-open * {
+  cursor: auto;
+}
+body.modal-open .cursor,
+body.modal-open .cursor-follower {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
 @media (pointer: coarse) { .cursor, .cursor-follower { display: none; } body { cursor: auto; } }
 
 /* ============================================================
@@ -1833,6 +1850,14 @@ body:has(button:hover) .cursor { width: 18px; height: 18px; }
   transform: rotate(90deg);
 }
 
+.video-modal-backdrop {
+  cursor: pointer !important;
+}
+
+.video-modal-close {
+  cursor: pointer !important;
+}
+
 .video-modal-player-wrapper {
   position: relative;
   width: 100%;
@@ -1841,6 +1866,7 @@ body:has(button:hover) .cursor { width: 18px; height: 18px; }
   justify-content: center;
   align-items: center;
   max-height: 75vh;
+  cursor: pointer !important;
 }
 
 .video-modal-player-wrapper video {
@@ -1849,6 +1875,38 @@ body:has(button:hover) .cursor { width: 18px; height: 18px; }
   object-fit: contain;
   background: #000;
   outline: none;
+  cursor: pointer !important;
+}
+
+/* Play / Pause Animated Ripple Feedback */
+.video-modal-play-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.6);
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.72);
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.9), 0 0 25px rgba(212, 168, 67, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+}
+.video-modal-play-indicator svg {
+  width: 32px;
+  height: 32px;
+  fill: var(--gold);
+}
+.video-modal-play-indicator.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 

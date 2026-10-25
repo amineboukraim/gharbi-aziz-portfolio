@@ -324,22 +324,55 @@ function initVideoModal() {
   const player = document.getElementById('video-modal-player');
   const titleEl = document.getElementById('video-modal-title');
   const tagEl = document.getElementById('video-modal-tag');
+  const indicator = document.getElementById('video-play-indicator');
 
   if (!modal || !player) return;
+
+  let indicatorTimeout;
+  function showIndicator(isPaused) {
+    if (!indicator) return;
+    const playIcon = indicator.querySelector('.indicator-play');
+    const pauseIcon = indicator.querySelector('.indicator-pause');
+    if (playIcon && pauseIcon) {
+      if (isPaused) {
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+      } else {
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+      }
+    }
+    indicator.classList.add('show');
+    clearTimeout(indicatorTimeout);
+    indicatorTimeout = setTimeout(() => {
+      indicator.classList.remove('show');
+    }, 450);
+  }
+
+  function togglePlayPause() {
+    if (player.paused) {
+      player.play().catch(() => {});
+      showIndicator(false);
+    } else {
+      player.pause();
+      showIndicator(true);
+    }
+  }
 
   function openModal(videoSrc, title, tag) {
     player.src = videoSrc;
     player.load();
-    if (titleEl) titleEl.textContent = title || 'Gharbi Aziz — Creative Video';
+    if (titleEl) titleEl.textContent = title || 'Gharbi Agency — Creative Video';
     if (tagEl) tagEl.textContent = tag || 'Portfolio Video';
     modal.classList.add('active');
     modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
     document.body.style.overflow = 'hidden';
     
     const playPromise = player.play();
     if (playPromise !== undefined) {
       playPromise.catch(err => {
-        console.log('Playback started muted or waiting user gesture:', err);
+        console.log('Playback waiting user gesture or muted:', err);
       });
     }
   }
@@ -347,16 +380,40 @@ function initVideoModal() {
   function closeModal() {
     modal.classList.remove('active');
     modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
     document.body.style.overflow = '';
     player.pause();
     player.currentTime = 0;
     player.src = '';
   }
 
+  // Click on the video to toggle Play / Pause directly with the mouse cursor
+  player.addEventListener('click', (e) => {
+    // If click is in the bottom control bar (~48px), let native controls handle scrub/volume
+    const rect = player.getBoundingClientRect();
+    const clickY = e.clientY - rect.top;
+    if (clickY < rect.height - 48) {
+      e.preventDefault();
+      togglePlayPause();
+    }
+  });
+
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
   if (backdrop) backdrop.addEventListener('click', closeModal);
+
+  // Keyboard controls: Escape to close, Space to Play/Pause
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+    if (modal.classList.contains('active')) {
+      if (e.key === 'Escape') {
+        closeModal();
+      } else if (e.code === 'Space') {
+        const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+        if (activeTag !== 'input' && activeTag !== 'textarea') {
+          e.preventDefault();
+          togglePlayPause();
+        }
+      }
+    }
   });
 
   // Attach to all cards and buttons with data-video
