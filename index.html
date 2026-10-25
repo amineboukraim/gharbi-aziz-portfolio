@@ -70,6 +70,7 @@
 
   <!-- ========== FULLSCREEN POSTER COVER ========== -->
   <section id="cover" class="fullscreen-poster-section">
+    <div class="poster-ambient-glow" aria-hidden="true"></div>
     <div class="poster-fullbg" id="poster-fullbg"></div>
     <div class="poster-light-sweep"></div>
     <div class="poster-particles" id="poster-particles"></div>
@@ -779,7 +780,7 @@
         <h3 class="video-modal-title" id="video-modal-title">Titre de la vidéo</h3>
       </div>
       <div class="video-modal-player-wrapper">
-        <video id="video-modal-player" controls playsinline controlsList="nodownload"></video>
+        <video id="video-modal-player" controls playsinline webkit-playsinline="true" x5-playsinline="true" preload="metadata" controlsList="nodownload"></video>
         <div class="video-modal-play-indicator" id="video-play-indicator" aria-hidden="true">
           <svg class="indicator-play" viewBox="0 0 24 24" fill="currentColor" width="32" height="32" style="display:none;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
           <svg class="indicator-pause" viewBox="0 0 24 24" fill="currentColor" width="32" height="32" style="display:none;"><rect x="6" y="4" width="4" height="16" rx="1"></rect><rect x="14" y="4" width="4" height="16" rx="1"></rect></svg>
