@@ -200,6 +200,7 @@ function animateCounter(el, target) {
    ============================================================ */
 function initPortfolioFilter() {
   const filterBtns = document.querySelectorAll('.filter-btn');
+  if (!filterBtns.length) return;
   const cards = document.querySelectorAll('.portfolio-card');
 
   filterBtns.forEach(btn => {
