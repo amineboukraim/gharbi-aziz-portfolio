@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initVideoModal();
   initVideoPreviews();
   initPosterEffects();
+  initVoicePlayer();
+  initImageLightbox();
 });
 
 /* ============================================================
@@ -204,7 +206,8 @@ function initPortfolioFilter() {
   const cards = document.querySelectorAll('.portfolio-card');
 
   filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
@@ -214,19 +217,20 @@ function initPortfolioFilter() {
         const category = card.dataset.category;
 
         if (filter === 'all' || category === filter) {
-          card.style.display = 'block';
-          card.style.animation = 'fadeIn 0.4s ease';
+          card.style.display = '';
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(15px)';
+          setTimeout(() => {
+            card.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 20);
         } else {
           card.style.display = 'none';
         }
       });
     });
   });
-
-  // Add CSS for fadeIn
-  const style = document.createElement('style');
-  style.textContent = `@keyframes fadeIn { from{opacity:0;transform:scale(0.95)} to{opacity:1;transform:scale(1)} }`;
-  document.head.appendChild(style);
 }
 
 /* ============================================================
@@ -510,4 +514,129 @@ function initPosterEffects() {
       particlesContainer.appendChild(p);
     }
   }
+}
+
+
+/* ============================================================
+   AUTHENTIC VOICE REVIEW PLAYER (AVIS VOCAL CLIENT)
+   ============================================================ */
+function initVoicePlayer() {
+  const audio = document.getElementById('client-voice-audio');
+  const widget = document.getElementById('voice-player-widget');
+  const playBtn = document.getElementById('voice-play-btn');
+  const playIcon = document.getElementById('voice-play-icon');
+  const pauseIcon = document.getElementById('voice-pause-icon');
+  const curTimeEl = document.getElementById('voice-current-time');
+  const durTimeEl = document.getElementById('voice-duration');
+  const seekBar = document.getElementById('voice-seek-bar');
+
+  if (!audio || !playBtn) return;
+
+  function formatTime(seconds) {
+    if (isNaN(seconds) || seconds < 0) return '0:00';
+    const m = Math.floor(seconds / 60);
+    const s = Math.floor(seconds % 60);
+    return m + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  function setPlayingState(isPlaying) {
+    if (isPlaying) {
+      widget.classList.add('playing');
+      if (playIcon) playIcon.style.display = 'none';
+      if (pauseIcon) pauseIcon.style.display = 'block';
+    } else {
+      widget.classList.remove('playing');
+      if (playIcon) playIcon.style.display = 'block';
+      if (pauseIcon) pauseIcon.style.display = 'none';
+    }
+  }
+
+  playBtn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play().then(() => {
+        setPlayingState(true);
+      }).catch(err => {
+        console.log('Audio playback gesture required:', err);
+      });
+    } else {
+      audio.pause();
+      setPlayingState(false);
+    }
+  });
+
+  audio.addEventListener('timeupdate', () => {
+    if (curTimeEl) curTimeEl.textContent = formatTime(audio.currentTime);
+    if (seekBar && audio.duration) {
+      seekBar.value = (audio.currentTime / audio.duration) * 100;
+    }
+  });
+
+  audio.addEventListener('loadedmetadata', () => {
+    if (durTimeEl) durTimeEl.textContent = formatTime(audio.duration);
+  });
+
+  if (audio.readyState >= 1) {
+    if (durTimeEl) durTimeEl.textContent = formatTime(audio.duration);
+  }
+
+  if (seekBar) {
+    seekBar.addEventListener('input', () => {
+      if (audio.duration) {
+        audio.currentTime = (seekBar.value / 100) * audio.duration;
+      }
+    });
+  }
+
+  audio.addEventListener('ended', () => {
+    setPlayingState(false);
+    audio.currentTime = 0;
+    if (seekBar) seekBar.value = 0;
+    if (curTimeEl) curTimeEl.textContent = '0:00';
+  });
+}
+
+/* ============================================================
+   LIGHTBOX IMAGE MODAL (AVIS & CAPTURES METRICS)
+   ============================================================ */
+function initImageLightbox() {
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('image-modal-img');
+  const captionEl = document.getElementById('image-modal-caption');
+  const closeBtn = document.getElementById('image-modal-close');
+  const backdrop = modal ? modal.querySelector('.image-modal-backdrop') : null;
+
+  if (!modal || !modalImg) return;
+
+  function openImageModal(src, caption) {
+    modalImg.src = src;
+    if (captionEl) captionEl.textContent = caption || '';
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeImageModal() {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeImageModal);
+  if (backdrop) backdrop.addEventListener('click', closeImageModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeImageModal();
+    }
+  });
+
+  document.querySelectorAll('[data-lightbox-img]').forEach(trigger => {
+    trigger.style.cursor = 'zoom-in';
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      const src = trigger.getAttribute('data-lightbox-img');
+      const caption = trigger.getAttribute('data-lightbox-caption') || '';
+      if (src) openImageModal(src, caption);
+    });
+  });
 }
