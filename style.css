@@ -1077,14 +1077,17 @@ body.modal-open .cursor-follower {
 .style-new3 { background: linear-gradient(135deg, #0a0a00, #1a1a00); }
 
 .portfolio-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.95) 40%, transparent);
-  opacity: 0;
-  transition: var(--transition);
-  display: flex;
-  align-items: flex-end;
-}
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    opacity: 0;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 .portfolio-card:hover .portfolio-overlay { opacity: 1; }
 .overlay-content {
   padding: 1.25rem;
@@ -1111,15 +1114,21 @@ body.modal-open .cursor-follower {
 }
 .overlay-content p { font-size: 0.75rem; color: var(--text-2); margin-bottom: 0.75rem; }
 .play-btn {
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  background: var(--gold);
-  border: none;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  transition: var(--transition);
-}
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-cyan) 100%);
+    border: none;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .play-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 45px rgba(6, 182, 212, 0.85);
+  }
 .play-btn:hover { transform: scale(1.15); }
 .play-btn [data-lucide] { width: 14px; height: 14px; color: #000; margin-left: 2px; }
 
